@@ -14,7 +14,7 @@ class CerPlugin(plugins.SingletonPlugin):
 
     def before_search(self, search_params):
         fq = search_params.get('fq', '')
-	fq += ' +extras_level:"top"'
-	search_params['fq'] = fq
-	 
+        fq += ' -child_of:[* TO *]'
+        search_params['fq'] = fq
+        
         return search_params
